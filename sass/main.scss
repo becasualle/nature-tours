@@ -1,4 +1,10 @@
-@charset "UTF-8";
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-grey-dark: #777;
+$color-white: #fff;
+
 *,
 *::after,
 *::before {
@@ -16,21 +22,29 @@ body {
   font-weight: 400;
   /* font-size: 16px; */
   line-height: 1.7;
-  color: #777;
+  color: $color-grey-dark;
   padding: 3rem;
   box-sizing: border-box;
 }
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
-  background-size: cover;
-  /* заполняет весь контейнер */
-  background-position: top;
-  /* закреплена верхушка изображения, при сжатии кропаются остальные части */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url("../img/hero.jpg");
+  background-size: cover; /* заполняет весь контейнер */
+  background-position: top; /* закреплена верхушка изображения, при сжатии кропаются остальные части */
   position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  /* указываем координаты x и y для четырех точек видимой части */
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 75vh,
+    0 100%
+  ); /* указываем координаты x и y для четырех точек видимой части */
 }
 
 .header__logo-box {
@@ -52,12 +66,11 @@ body {
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
-  /* чтобы кнопка (она же ссылка) была по центру */
+  text-align: center; /* чтобы кнопка (она же ссылка) была по центру */
 }
 
 .heading-primary {
-  color: #fff;
+  color: $color-white;
   text-transform: uppercase;
   /* чтобы отделить текст от кнопки */
   margin-bottom: 6rem;
@@ -88,27 +101,33 @@ body {
     opacity: 0;
     transform: translateX(-10rem);
   }
+
   80% {
     transform: translateX(1rem);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
   }
 }
+
 @keyframes moveFromRight {
   0% {
     opacity: 0;
     transform: translateX(10rem);
   }
+
   80% {
     transform: translateX(-1rem);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
   }
 }
+
 .btn:link,
 .btn:visited {
   text-transform: uppercase;
@@ -138,8 +157,8 @@ body {
 }
 
 .btn--white {
-  background-color: #fff;
-  color: #777;
+  background-color: $color-white;
+  color: $color-grey-dark;
 }
 
 .btn::after {
@@ -159,7 +178,7 @@ body {
 }
 
 .btn--white::after {
-  background-color: #fff;
+  background-color: $color-white;
 }
 
 /* сделаем чтобы при наведении этот элемент увеличивался в размерах */
@@ -181,10 +200,9 @@ body {
     opacity: 0;
     transform: translateY(3rem);
   }
+
   100% {
     opacity: 1;
     transform: translate(0);
   }
 }
-
-/*# sourceMappingURL=style.css.map */
