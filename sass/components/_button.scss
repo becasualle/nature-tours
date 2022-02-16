@@ -1,0 +1,67 @@
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    /* ссылка инлайн элемент и будет наезжать на текст выше, ставим inline block */
+    display: inline-block;
+    border-radius: 10rem;
+    /* добавим анимацию всех свойств длительностью 0.2 сек */
+    transition: all 0.3s;
+    /* чтобы позиционировать псевдо-элемент относительно этой кнопки*/
+    position: relative;
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    /* при наведении курсора кнопка поднимается чуть выше */
+    transform: translateY(-0.3rem);
+    /* смещение по оси x, y, степень блюра, цвет тени*/
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    &::after {
+      transform: scaleX(1.1) scaleY(1.3);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    /* при клике на кнопку опускается чуть ниже относительно ховера */
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &::after {
+    /* обязательные свойства без которых не покажется */
+    content: "";
+    display: inline-block;
+    /* относительно родителя */
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    /* расположим под родителем, а не следующим после него */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  /* сделаем чтобы при наведении этот элемент увеличивался в размерах */
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    /* кнопка была видна до проигрыша анимации так как стоит delay */
+    /* автоматически применить стили 0% перед стартом анимации */
+    /* тогда кнопка будет не видна 0.75 сек., и потом начнет появляться и подниматься в течение 0.5 сек */
+    animation-fill-mode: backwards;
+  }
+}
