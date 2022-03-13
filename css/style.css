@@ -35,6 +35,12 @@
     transform: translate(0);
   }
 }
+:root {
+  --grid-width: 114rem;
+  --gutter-vertical: 8rem;
+  --gutter-horizontal: 6rem;
+}
+
 *,
 *::after,
 *::before {
@@ -45,6 +51,7 @@
 
 html {
   font-size: 62.5%;
+  padding: 3rem;
 }
 
 body {
@@ -57,7 +64,6 @@ body {
   /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
-  padding: 3rem;
 }
 
 .heading-primary {
@@ -143,6 +149,38 @@ body {
   /* автоматически применить стили 0% перед стартом анимации */
   /* тогда кнопка будет не видна 0.75 сек., и потом начнет появляться и подниматься в течение 0.5 сек */
   animation-fill-mode: backwards;
+}
+
+.row {
+  max-width: var(--grid-width);
+  background-color: #eee;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.row:not(:last-child) {
+  margin-bottom: var(--gutter-horizontal);
+}
+.row > * {
+  background-color: yellowgreen;
+}
+.row .col-1-of-2 {
+  flex: 0 0 calc((100% - var(--gutter-horizontal)) / 2);
+}
+.row .col-1-of-3 {
+  flex: 0 0 calc((100% - var(--gutter-horizontal) * 2) / 3);
+}
+.row .col-2-of-3 {
+  flex: 0 0 calc((100% - var(--gutter-horizontal) * 2) * 2 / 3 + var(--gutter-horizontal));
+}
+.row .col-1-of-4 {
+  flex: 0 0 calc((100% - var(--gutter-horizontal) * 3) / 4);
+}
+.row .col-2-of-4 {
+  flex: 0 0 calc((100% - var(--gutter-horizontal) * 3) * 2 / 4 + var(--gutter-horizontal));
+}
+.row .col-3-of-4 {
+  flex: 0 0 calc((100% - var(--gutter-horizontal) * 3) * 3 / 4 + var(--gutter-horizontal) * 2);
 }
 
 .header {
