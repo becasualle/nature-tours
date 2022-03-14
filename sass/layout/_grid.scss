@@ -1,6 +1,6 @@
 .row {
   max-width: var(--grid-width);
-  background-color: #eee;
+  // background-color: #eee;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -9,7 +9,7 @@
     margin-bottom: var(--gutter-horizontal);
   }
   & > * {
-    background-color: yellowgreen;
+    // background-color: yellowgreen;
   }
   .col-1-of-2 {
     flex: 0 0 calc((100% - var(--gutter-horizontal)) / 2);
