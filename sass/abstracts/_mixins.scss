@@ -4,3 +4,32 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@mixin xs {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+// Extra small	xs	Small to large phone	< 600px
+// Small	sm	Small to medium tablet	600px > < 900px
+// Medium	md	Large tablet to laptop	900px > < 1200px*
+// Large	lg	Desktop	1200px > < 1800px*
+// Extra large	xl	4k and ultra-wide	> 1800px*
+$sizes: (
+  xs: 600px,
+  sm: 900px,
+  md: 1200px,
+  xl: 1800px,
+);
+
+@mixin media($size, $range: "max") {
+  @if map-has-key($sizes, $size) {
+    $size-value: map-get($sizes, $size);
+    @media only screen and (#{$range}-width: $size-value) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$size}.';
+  }
+}

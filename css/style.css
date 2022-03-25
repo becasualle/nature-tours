@@ -56,6 +56,21 @@ html {
   font-size: 62.5%;
   padding: 3rem;
 }
+@media only screen and (max-width: 1200px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  html {
+    font-size: 50%;
+  }
+}
+@media only screen and (min-width: 1800px) {
+  html {
+    font-size: 75%;
+  }
+}
 
 body {
   box-sizing: border-box;
