@@ -6,11 +6,23 @@
   justify-content: space-between;
 
   &:not(:last-child) {
-    margin-bottom: var(--gutter-horizontal);
+    margin-bottom: var(--gutter-vertical);
+    @include media(tab-port) {
+      margin-bottom: var(--gutter-vertical-small);
+    }
   }
-  & > * {
-    // background-color: yellowgreen;
+  @include media(tab-port) {
+    flex-direction: column;
+    max-width: 50rem;
   }
+  [class^="col-"] {
+    &:not(:last-child) {
+      @include media(tab-port) {
+        margin-bottom: var(--gutter-vertical-small);
+      }
+    }
+  }
+
   .col-1-of-2 {
     flex: 0 0 calc((100% - var(--gutter-horizontal)) / 2);
   }

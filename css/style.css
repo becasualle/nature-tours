@@ -38,6 +38,7 @@
 :root {
   --grid-width: 114rem;
   --gutter-vertical: 8rem;
+  --gutter-vertical-small: 6rem;
   --gutter-horizontal: 6rem;
   --color-grey-light-1: #f7f7f7;
   --color-grey-light-2: #eee;
@@ -64,6 +65,7 @@ html {
 @media only screen and (max-width: 900px) {
   html {
     font-size: 50%;
+    padding: 0;
   }
 }
 @media only screen and (min-width: 1800px) {
@@ -102,11 +104,22 @@ body {
   animation-duration: 1s;
   animation-timing-function: ease-out;
 }
+@media only screen and (max-width: 600px) {
+  .heading-primary__text--main {
+    letter-spacing: 1rem;
+    font-size: 5rem;
+  }
+}
 .heading-primary__text--sub {
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1.75rem;
   animation: moveFromRight 1s ease-out;
+}
+@media only screen and (max-width: 600px) {
+  .heading-primary__text--sub {
+    letter-spacing: 0.5rem;
+  }
 }
 
 .heading-secondary {
@@ -120,6 +133,16 @@ body {
   color: transparent;
   letter-spacing: 2px;
   transition: all 0.2s;
+}
+@media only screen and (max-width: 900px) {
+  .heading-secondary {
+    font-size: 3rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .heading-secondary {
+    font-size: 2.5rem;
+  }
 }
 .heading-secondary:hover {
   transform: skewY(2deg) skewX(15deg) scale(1.1);
@@ -658,7 +681,23 @@ body {
   justify-content: space-between;
 }
 .row:not(:last-child) {
-  margin-bottom: var(--gutter-horizontal);
+  margin-bottom: var(--gutter-vertical);
+}
+@media only screen and (max-width: 900px) {
+  .row:not(:last-child) {
+    margin-bottom: var(--gutter-vertical-small);
+  }
+}
+@media only screen and (max-width: 900px) {
+  .row {
+    flex-direction: column;
+    max-width: 50rem;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .row [class^=col-]:not(:last-child) {
+    margin-bottom: var(--gutter-vertical-small);
+  }
 }
 .row .col-1-of-2 {
   flex: 0 0 calc((100% - var(--gutter-horizontal)) / 2);

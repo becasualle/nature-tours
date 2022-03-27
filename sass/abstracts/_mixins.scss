@@ -17,10 +17,10 @@
 // Large	lg	Desktop	1200px > < 1800px*
 // Extra large	xl	4k and ultra-wide	> 1800px*
 $sizes: (
-  xs: 600px,
-  sm: 900px,
-  md: 1200px,
-  xl: 1800px,
+  phone: 600px,
+  tab-port: 900px,
+  tab-land: 1200px,
+  big-desktop: 1800px,
 );
 
 @mixin media($size, $range: "max") {

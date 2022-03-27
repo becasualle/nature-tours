@@ -1,6 +1,7 @@
 :root {
   --grid-width: 114rem;
   --gutter-vertical: 8rem;
+  --gutter-vertical-small: 6rem;
   --gutter-horizontal: 6rem;
 
   --color-grey-light-1: #f7f7f7;
@@ -19,13 +20,14 @@
 html {
   font-size: 62.5%; //10px
   padding: 3rem;
-  @include media(md) {
+  @include media(tab-land) {
     font-size: 56.25%; //9px
   }
-  @include media(sm) {
+  @include media(tab-port) {
     font-size: 50%; //8px
+    padding: 0;
   }
-  @include media(xl, "min") {
+  @include media(big-desktop, "min") {
     font-size: 75%; //12px
   }
 }
