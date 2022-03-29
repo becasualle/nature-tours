@@ -13,7 +13,7 @@
   &__content {
     @include center-horizontal-vertical;
     background-color: $color-white;
-    width: 75%;
+    width: 95%;
     box-shadow: 0 2rem 4rem rgba($color: $color-black, $alpha: 0.2);
     border-radius: 3px;
     display: flex;
@@ -21,18 +21,31 @@
     opacity: 0;
     transform: translate(-50%, -50%) scale(0);
     transition: all 0.4s 0.2s;
+    @include media(tab-land) {
+      flex-direction: column;
+    }
   }
   &__images {
     flex: 0 0 calc(100% / 3);
+    @include media(tab-land) {
+      display: flex;
+    }
   }
   &__description {
     align-self: center;
     flex: 0 0 calc(100% - 100% / 3);
     padding: 3rem 5rem;
+    @include media(tab-port) {
+      padding: 1.5rem 4rem;
+    }
   }
   &__img {
     display: block;
-    width: 100%;
+    max-width: 100%;
+    height: auto;
+    @include media(tab-land) {
+      max-width: 50%;
+    }
   }
 
   &__text {
@@ -49,6 +62,16 @@
     -webkit-hyphens: auto;
     -ms-hyphens: auto;
     hyphens: auto;
+
+    @include media(tab-port) {
+      margin-bottom: 2.5rem;
+      -webkit-column-count: 1;
+      -webkit-column-gap: 4rem;
+      -webkit-column-rule: 1px solid var(--color-grey-light-2);
+      column-count: 1;
+      column-gap: 4rem;
+      column-rule: 1px solid var(--color-grey-light-2);
+    }
   }
 
   &:target {
